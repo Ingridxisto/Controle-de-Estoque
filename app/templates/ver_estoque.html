@@ -1,0 +1,257 @@
+{% extends "base.html" %}
+
+{% block title %}
+Estoque
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style_estoque.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page">
+
+    <div class="topbar">
+
+        <div>
+            <span class="eyebrow">CONTROLE DE ESTOQUE</span>
+
+            <h1>Estoque de Produtos</h1>
+
+            <p>
+                Consulte e gerencie os produtos cadastrados.
+            </p>
+        </div>
+
+        <a href="{{ url_for('core.home') }}"
+           class="btn-voltar">
+            Voltar
+        </a>
+
+    </div>
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+
+        {% if messages %}
+
+            <div class="flash-messages">
+
+                {% for category, message in messages %}
+
+                    <div class="flash-message {{ category }}">
+                        {{ message }}
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% endif %}
+
+    {% endwith %}
+
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <div>
+                <h2>Produtos em estoque</h2>
+
+                <span class="card-description">
+                    Visualize as quantidades e realize movimentações.
+                </span>
+            </div>
+
+
+            {% if is_admin %}
+
+            <a href="{{ url_for('produto.cadastrar_produto') }}"
+               class="btn-primary">
+                + Adicionar Produto
+            </a>
+
+            {% endif %}
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Produto</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Quantidade</th>
+                        <th>Mínimo</th>
+                        <th>Ações</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for produto in produtos %}
+
+                    <tr class="{% if produto.quantidade <= produto.quantidade_minima %}em-falta{% endif %}">
+
+                        <td>
+                            <span class="produto-id">
+                                #{{ produto.id }}
+                            </span>
+                        </td>
+
+
+                        <td>
+                            <strong>
+                                {{ produto.nome }}
+                            </strong>
+                        </td>
+
+
+                        <td class="descricao">
+                            {{ produto.descricao }}
+                        </td>
+
+
+                        <td class="valor">
+                            R$ {{ "{:.2f}".format(produto.valor) }}
+                        </td>
+
+
+                        <td>
+
+                            <span class="
+                                quantidade
+                                {% if produto.quantidade <= produto.quantidade_minima %}
+                                    quantidade-baixa
+                                {% endif %}
+                            ">
+                                {{ produto.quantidade }}
+                            </span>
+
+                        </td>
+
+
+                        <td>
+                            {{ produto.quantidade_minima }}
+                        </td>
+
+
+                        <td>
+
+                            {% if is_admin %}
+
+                            <div class="acoes">
+
+                                <div class="acoes-principais">
+
+                                    <a href="{{ url_for('produto.editar_produto_route', id=produto.id, origem='estoque') }}"
+                                       class="btn-editar">
+                                        Editar
+                                    </a>
+
+
+                                    <a href="{{ url_for('produto.excluir_produto_route', id=produto.id) }}"
+                                       class="btn-excluir"
+                                       onclick="return confirm('Tem certeza que deseja excluir este produto?')">
+                                        Excluir
+                                    </a>
+
+                                </div>
+
+
+                                <div class="movimentacoes">
+
+                                    <form
+                                        action="{{ url_for('estoque.movimentar', tipo='entrada', produto_id=produto.id) }}"
+                                        method="POST">
+
+                                        <input
+                                            type="number"
+                                            name="quantidade"
+                                            min="1"
+                                            required
+                                            placeholder="Qtd."
+                                        >
+
+                                        <button
+                                            type="submit"
+                                            class="btn-entrada">
+                                            + Entrada
+                                        </button>
+
+                                    </form>
+
+
+                                    <form
+                                        action="{{ url_for('estoque.movimentar', tipo='saida', produto_id=produto.id) }}"
+                                        method="POST">
+
+                                        <input
+                                            type="number"
+                                            name="quantidade"
+                                            min="1"
+                                            required
+                                            placeholder="Qtd."
+                                        >
+
+                                        <button
+                                            type="submit"
+                                            class="btn-saida">
+                                            − Saída
+                                        </button>
+
+                                    </form>
+
+                                </div>
+
+                            </div>
+
+                            {% else %}
+
+                            <span class="sem-acoes">
+                                Visualização
+                            </span>
+
+                            {% endif %}
+
+                        </td>
+
+                    </tr>
+
+                    {% else %}
+
+                    <tr>
+                        <td colspan="7" class="sem-produtos">
+                            Nenhum produto cadastrado.
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+        Sistema de Controle de Estoque
+    </footer>
+
+</div>
+
+{% endblock %}

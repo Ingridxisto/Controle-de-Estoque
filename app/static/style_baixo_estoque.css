@@ -1,0 +1,443 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f4f7fb;
+    color: #1f2937;
+}
+
+
+/* =========================
+   PÁGINA
+========================= */
+
+.page {
+    width: 100%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+    padding: 35px 30px;
+}
+
+
+/* =========================
+   TOPO
+========================= */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.eyebrow {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+
+    color: #dc2626;
+}
+
+.topbar h1 {
+    margin: 0;
+
+    font-size: 32px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+.topbar p {
+    margin: 8px 0 0;
+
+    color: #6b7280;
+    font-size: 15px;
+}
+
+
+/* =========================
+   BOTÃO VOLTAR
+========================= */
+
+.btn-voltar {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+    color: #374151;
+
+    border: 1px solid #dbe2ea;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.btn-voltar:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+
+/* =========================
+   ALERTA
+========================= */
+
+.alerta-estoque {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 22px;
+    padding: 15px 18px;
+
+    border-radius: 9px;
+
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+
+    color: #9a3412;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.alerta-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    background: #ffedd5;
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px rgba(15, 23, 42, 0.05);
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   CABEÇALHO DO CARD
+========================= */
+
+.card-header {
+    padding: 22px 24px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.card-header h2 {
+    margin: 0 0 5px;
+
+    font-size: 19px;
+
+    color: #111827;
+}
+
+.card-description {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+
+/* =========================
+   TABELA
+========================= */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 900px;
+}
+
+thead {
+    background: #f8fafc;
+}
+
+th {
+    padding: 14px 16px;
+
+    text-align: left;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    color: #64748b;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 16px;
+
+    border-bottom: 1px solid #eef2f7;
+
+    color: #374151;
+
+    font-size: 14px;
+
+    vertical-align: middle;
+}
+
+tbody tr {
+    background: #fffafa;
+
+    transition: background 0.2s;
+}
+
+tbody tr:hover {
+    background: #fff1f2;
+}
+
+
+/* =========================
+   PRODUTO
+========================= */
+
+.produto-id {
+    color: #64748b;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.produto-nome {
+    font-weight: 700;
+    color: #111827;
+}
+
+.descricao {
+    max-width: 280px;
+
+    color: #6b7280;
+}
+
+
+/* =========================
+   VALOR
+========================= */
+
+.valor {
+    font-weight: 700;
+
+    color: #111827;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   QUANTIDADE
+========================= */
+
+.quantidade-atual {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 38px;
+
+    padding: 6px 10px;
+
+    border-radius: 6px;
+
+    background: #fee2e2;
+
+    color: #b91c1c;
+
+    font-weight: 700;
+}
+
+.quantidade-minima {
+    color: #6b7280;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   ALERTA DA LINHA
+========================= */
+
+tr.estoque-critico td:first-child {
+    border-left: 3px solid #ef4444;
+}
+
+
+/* =========================
+   AÇÕES
+========================= */
+
+.acoes {
+    display: flex;
+
+    gap: 7px;
+}
+
+
+/* =========================
+   EDITAR
+========================= */
+
+.btn-editar,
+.btn-excluir {
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 7px 12px;
+
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.btn-editar {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.btn-editar:hover {
+    background: #dbeafe;
+}
+
+
+/* =========================
+   EXCLUIR
+========================= */
+
+.btn-excluir {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.btn-excluir:hover {
+    background: #fee2e2;
+}
+
+
+/* =========================
+   SEM PRODUTOS
+========================= */
+
+.sem-produtos {
+    padding: 45px;
+
+    text-align: center;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 25px;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 768px) {
+
+    .page {
+        padding: 20px 15px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .topbar h1 {
+        font-size: 26px;
+    }
+
+    .btn-voltar {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .alerta-estoque {
+        align-items: flex-start;
+    }
+
+    .acoes {
+        flex-direction: column;
+    }
+
+}

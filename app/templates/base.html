@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+        Controle de Estoque
+        {% endblock %}
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style_base.css') }}">
+
+    {% block extra_css %}
+    {% endblock %}
+</head>
+
+<body>
+
+    <header class="main-header">
+
+        <div class="header-content">
+
+            <a href="{{ url_for('core.home') }}"
+               class="logo">
+                📦 Controle de Estoque
+            </a>
+
+            {% if current_user.is_authenticated %}
+
+            <nav class="main-nav">
+
+                <a href="{{ url_for('core.home') }}">
+                    Início
+                </a>
+
+                <a href="{{ url_for('estoque.ver_estoque') }}">
+                    Estoque
+                </a>
+
+                {% if current_user.perfil == "Administrador" %}
+
+                <a href="{{ url_for('produto.cadastrar_produto') }}">
+                    Cadastrar Produto
+                </a>
+
+                <a href="{{ url_for('usuario.cadastrar_usuario') }}">
+                    Usuários
+                </a>
+
+                {% endif %}
+
+            </nav>
+
+            <div class="user-area">
+
+                <span class="user-name">
+                    {{ current_user.nome }}
+                </span>
+
+                <span class="user-role
+                    {% if current_user.perfil == 'Administrador' %}
+                        admin
+                    {% else %}
+                        comum
+                    {% endif %}
+                ">
+                    {{ current_user.perfil }}
+                </span>
+
+                <a href="{{ url_for('usuario.logout') }}"
+                   class="logout-link">
+                    Sair
+                </a>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </header>
+
+
+    <main class="main-content">
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+
+            {% if messages %}
+
+                <div class="flash-container">
+
+                    {% for category, message in messages %}
+
+                        <div class="flash-message {{ category }}">
+                            {{ message }}
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            {% endif %}
+
+        {% endwith %}
+
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+
+    <footer class="main-footer">
+
+        <p>
+            &copy; 2026 Controle de Estoque
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

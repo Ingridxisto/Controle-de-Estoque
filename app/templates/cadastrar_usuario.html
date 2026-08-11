@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+
+{% block title %}
+Cadastrar Usuário
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style_usuario.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page">
+
+    <div class="topbar">
+
+        <div>
+            <span class="eyebrow">
+                ADMINISTRAÇÃO
+            </span>
+
+            <h1>Cadastrar Usuário</h1>
+
+            <p>
+                Adicione um novo usuário ao sistema.
+            </p>
+        </div>
+
+        <a href="{{ url_for('core.home') }}"
+           class="btn-voltar">
+            ← Voltar
+        </a>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <h2>
+                Dados do usuário
+            </h2>
+
+            <span class="card-description">
+                Preencha as informações abaixo.
+            </span>
+
+        </div>
+
+
+        <div class="form-container">
+
+            <div class="flash-messages">
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+
+                    {% if messages %}
+
+                        <ul>
+
+                            {% for category, message in messages %}
+
+                                <li class="flash-message {{ category }}">
+                                    {{ message }}
+                                </li>
+
+                            {% endfor %}
+
+                        </ul>
+
+                    {% endif %}
+
+                {% endwith %}
+
+            </div>
+
+
+            <form action="{{ url_for('usuario.cadastrar_usuario') }}"
+                  method="post">
+
+                <div class="form-group">
+
+                    <label for="nomeForm">
+                        Nome
+                    </label>
+
+                    <input
+                        type="text"
+                        name="nomeForm"
+                        id="nomeForm"
+                        placeholder="Digite o nome"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="emailForm">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        name="emailForm"
+                        id="emailForm"
+                        placeholder="Digite o e-mail"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="senhaForm">
+                        Senha
+                    </label>
+
+                    <input
+                        type="password"
+                        name="senhaForm"
+                        id="senhaForm"
+                        placeholder="Digite a senha"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="perfil">
+                        Perfil
+                    </label>
+
+                    <select name="perfil" id="perfil" required>
+
+                        <option value="Administrador">
+                            Administrador
+                        </option>
+
+                        <option value="Comum">
+                            Comum
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <a href="{{ url_for('core.home') }}"
+                       class="btn-secondary">
+                        Cancelar
+                    </a>
+
+                    <button type="submit"
+                            class="btn-cadastrar">
+                        Cadastrar Usuário
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

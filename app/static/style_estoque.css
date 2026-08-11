@@ -1,0 +1,601 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f4f7fb;
+    color: #1f2937;
+}
+
+
+/* =========================
+   PÁGINA
+========================= */
+
+.page {
+    width: 100%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+    padding: 35px 30px;
+}
+
+
+/* =========================
+   TOPO
+========================= */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.eyebrow {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+
+    color: #2563eb;
+}
+
+.topbar h1 {
+    margin: 0;
+
+    font-size: 32px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+.topbar p {
+    margin: 8px 0 0;
+
+    color: #6b7280;
+    font-size: 15px;
+}
+
+
+/* =========================
+   BOTÃO VOLTAR
+========================= */
+
+.btn-voltar {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+    color: #374151;
+
+    border: 1px solid #dbe2ea;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.btn-voltar:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+
+/* =========================
+   FLASH
+========================= */
+
+.flash-messages {
+    margin-bottom: 20px;
+}
+
+.flash-message {
+    padding: 13px 16px;
+
+    margin-bottom: 10px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.flash-message.success {
+    background: #dcfce7;
+    color: #166534;
+
+    border: 1px solid #bbf7d0;
+}
+
+.flash-message.danger {
+    background: #fee2e2;
+    color: #991b1b;
+
+    border: 1px solid #fecaca;
+}
+
+.flash-message.info {
+    background: #dbeafe;
+    color: #1e40af;
+
+    border: 1px solid #bfdbfe;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px rgba(15, 23, 42, 0.05);
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   CABEÇALHO DO CARD
+========================= */
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 22px 24px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.card-header h2 {
+    margin: 0 0 5px;
+
+    font-size: 19px;
+
+    color: #111827;
+}
+
+.card-description {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+
+/* =========================
+   BOTÃO PRINCIPAL
+========================= */
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 11px 17px;
+
+    border-radius: 8px;
+
+    background: #2563eb;
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================
+   TABELA
+========================= */
+
+.table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 1000px;
+}
+
+thead {
+    background: #f8fafc;
+}
+
+th {
+    padding: 14px 16px;
+
+    text-align: left;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    color: #64748b;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 16px;
+
+    border-bottom: 1px solid #eef2f7;
+
+    color: #374151;
+
+    font-size: 14px;
+
+    vertical-align: middle;
+}
+
+tbody tr {
+    transition: background 0.2s;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+
+/* =========================
+   ID
+========================= */
+
+.produto-id {
+    color: #64748b;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   DESCRIÇÃO
+========================= */
+
+.descricao {
+    max-width: 250px;
+
+    color: #6b7280;
+}
+
+
+/* =========================
+   VALOR
+========================= */
+
+.valor {
+    font-weight: 700;
+    color: #111827;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   QUANTIDADE
+========================= */
+
+.quantidade {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 34px;
+
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    background: #eff6ff;
+
+    color: #1d4ed8;
+
+    font-weight: 700;
+}
+
+.quantidade-baixa {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+
+/* =========================
+   ESTOQUE BAIXO
+========================= */
+
+tr.em-falta {
+    background: #fff7f7;
+}
+
+tr.em-falta:hover {
+    background: #fff1f2;
+}
+
+tr.em-falta td:first-child {
+    border-left: 3px solid #ef4444;
+}
+
+
+/* =========================
+   AÇÕES
+========================= */
+
+.acoes {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    min-width: 300px;
+}
+
+.acoes-principais {
+    display: flex;
+    gap: 7px;
+}
+
+
+/* =========================
+   BOTÃO EDITAR
+========================= */
+
+.btn-editar,
+.btn-excluir {
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 7px 12px;
+
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.btn-editar {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.btn-editar:hover {
+    background: #dbeafe;
+}
+
+
+/* =========================
+   BOTÃO EXCLUIR
+========================= */
+
+.btn-excluir {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.btn-excluir:hover {
+    background: #fee2e2;
+}
+
+
+/* =========================
+   MOVIMENTAÇÕES
+========================= */
+
+.movimentacoes {
+    display: flex;
+
+    gap: 7px;
+}
+
+.movimentacoes form {
+    display: flex;
+
+    gap: 5px;
+}
+
+.movimentacoes input {
+    width: 70px;
+
+    padding: 7px 8px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 6px;
+
+    outline: none;
+
+    font-size: 12px;
+}
+
+.movimentacoes input:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+
+/* =========================
+   BOTÃO ENTRADA
+========================= */
+
+.btn-entrada,
+.btn-saida {
+    border: none;
+
+    padding: 7px 10px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.btn-entrada {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.btn-entrada:hover {
+    background: #bbf7d0;
+}
+
+
+/* =========================
+   BOTÃO SAÍDA
+========================= */
+
+.btn-saida {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.btn-saida:hover {
+    background: #fecaca;
+}
+
+
+/* =========================
+   SEM PRODUTOS
+========================= */
+
+.sem-produtos {
+    padding: 45px;
+
+    text-align: center;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 25px;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 768px) {
+
+    .page {
+        padding: 20px 15px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .topbar h1 {
+        font-size: 26px;
+    }
+
+    .btn-voltar {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .card-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .btn-primary {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .acoes {
+        min-width: 280px;
+    }
+
+    .movimentacoes {
+        flex-direction: column;
+    }
+
+    .movimentacoes form {
+        width: 100%;
+    }
+
+    .movimentacoes input {
+        flex: 1;
+    }
+
+    .sem-acoes {
+        color: #94a3b8;
+        font-size: 12px;
+        font-style: italic;
+    }
+
+}

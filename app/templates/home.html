@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block title %}
+Início - Controle de Estoque
+{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style_home.css') }}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="home-container">
+
+    <div class="welcome-card">
+
+        <div class="welcome-icon">
+            📦
+        </div>
+
+        <div>
+
+            <h1>
+                Controle de Estoque
+            </h1>
+
+            <p>
+                Bem-vindo, <strong>{{ current_user.nome }}</strong>!
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-grid">
+
+
+        {% if is_admin %}
+
+        <a href="{{ url_for('usuario.cadastrar_usuario') }}"
+           class="dashboard-card">
+
+            <span class="card-icon">
+                👤
+            </span>
+
+            <h3>
+                Usuários
+            </h3>
+
+            <p>
+                Cadastrar novos usuários
+            </p>
+
+        </a>
+
+
+        <a href="{{ url_for('produto.cadastrar_produto') }}"
+           class="dashboard-card">
+
+            <span class="card-icon">
+                ➕
+            </span>
+
+            <h3>
+                Novo Produto
+            </h3>
+
+            <p>
+                Cadastrar produto no estoque
+            </p>
+
+        </a>
+
+
+        {% endif %}
+
+
+        <a href="{{ url_for('estoque.ver_estoque') }}"
+           class="dashboard-card">
+
+            <span class="card-icon">
+                📦
+            </span>
+
+            <h3>
+                Estoque
+            </h3>
+
+            <p>
+                Consultar produtos e quantidades
+            </p>
+
+        </a>
+
+
+        {% if is_admin %}
+
+        <a href="{{ url_for('estoque.listar_baixo_estoque') }}"
+           class="dashboard-card warning-card">
+
+            <span class="card-icon">
+                ⚠️
+            </span>
+
+            <h3>
+                Baixo Estoque
+            </h3>
+
+            <p>
+                Ver produtos abaixo do mínimo
+            </p>
+
+        </a>
+
+        {% endif %}
+
+
+    </div>
+
+
+    <div class="home-info">
+
+        <span>
+            Perfil:
+        </span>
+
+        <strong>
+            {{ current_user.perfil }}
+        </strong>
+
+    </div>
+
+</div>
+
+{% endblock %}

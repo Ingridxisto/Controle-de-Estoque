@@ -1,0 +1,399 @@
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+
+    --background: #f1f5f9;
+    --surface: #ffffff;
+
+    --text: #1e293b;
+    --text-light: #64748b;
+
+    --border: #e2e8f0;
+
+    --success: #16a34a;
+    --success-dark: #15803d;
+
+    --danger: #dc2626;
+    --danger-dark: #b91c1c;
+
+    --warning: #f59e0b;
+
+    --header: #0f172a;
+
+    --shadow:
+        0 4px 15px rgba(15, 23, 42, 0.08);
+
+    --radius: 10px;
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background-color: var(--background);
+
+    color: var(--text);
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.main-header {
+    background-color: var(--header);
+
+    color: white;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+.header-content {
+    max-width: 1400px;
+
+    width: 100%;
+
+    margin: 0 auto;
+
+    min-height: 70px;
+
+    padding: 0 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    transition: opacity 0.2s ease;
+}
+
+
+.logo:hover {
+    opacity: 0.85;
+}
+
+
+/* =========================================
+   MENU
+========================================= */
+
+.main-nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    flex: 1;
+}
+
+
+.main-nav a {
+    color: #cbd5e1;
+
+    text-decoration: none;
+
+    padding: 10px 14px;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.main-nav a:hover {
+    background-color: #1e293b;
+
+    color: white;
+}
+
+
+/* =========================================
+   USUÁRIO
+========================================= */
+
+.user-area {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    white-space: nowrap;
+}
+
+
+.user-name {
+    color: #f8fafc;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.user-role {
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+.user-role.admin {
+    background-color: #dbeafe;
+
+    color: #1d4ed8;
+}
+
+
+.user-role.comum {
+    background-color: #dcfce7;
+
+    color: #15803d;
+}
+
+
+.logout-link {
+    color: #fecaca;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    padding: 8px 10px;
+
+    border-radius: 6px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.logout-link:hover {
+    background-color: #7f1d1d;
+
+    color: white;
+}
+
+
+/* =========================================
+   CONTEÚDO PRINCIPAL
+========================================= */
+
+.main-content {
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding: 35px 30px;
+
+    flex: 1;
+}
+
+
+/* =========================================
+   FLASH MESSAGES
+========================================= */
+
+.flash-container {
+    width: 100%;
+
+    margin-bottom: 25px;
+}
+
+
+.flash-message {
+    padding: 14px 18px;
+
+    border-radius: 8px;
+
+    margin-bottom: 10px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    border: 1px solid transparent;
+}
+
+
+.flash-message.success {
+    background-color: #dcfce7;
+
+    color: #166534;
+
+    border-color: #bbf7d0;
+}
+
+
+.flash-message.danger {
+    background-color: #fee2e2;
+
+    color: #991b1b;
+
+    border-color: #fecaca;
+}
+
+
+.flash-message.error {
+    background-color: #fee2e2;
+
+    color: #991b1b;
+
+    border-color: #fecaca;
+}
+
+
+.flash-message.info {
+    background-color: #e0f2fe;
+
+    color: #075985;
+
+    border-color: #bae6fd;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.main-footer {
+    background-color: var(--header);
+
+    color: #94a3b8;
+
+    text-align: center;
+
+    padding: 18px;
+
+    margin-top: auto;
+}
+
+
+.main-footer p {
+    font-size: 13px;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .header-content {
+        flex-wrap: wrap;
+
+        padding: 15px 20px;
+
+        gap: 15px;
+    }
+
+
+    .main-nav {
+        order: 3;
+
+        width: 100%;
+
+        overflow-x: auto;
+
+        padding-bottom: 5px;
+    }
+
+
+    .user-area {
+        margin-left: auto;
+    }
+
+
+    .main-content {
+        padding: 25px 20px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .header-content {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .logo {
+        text-align: center;
+    }
+
+
+    .main-nav {
+        justify-content: center;
+    }
+
+
+    .user-area {
+        justify-content: center;
+
+        margin-left: 0;
+    }
+
+
+    .main-content {
+        padding: 20px 15px;
+    }
+}

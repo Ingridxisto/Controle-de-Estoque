@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block title %}
+Movimentação de Estoque
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style_movimentacao_estoque.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page">
+
+    <div class="topbar">
+
+        <div>
+            <span class="eyebrow">ESTOQUE</span>
+
+            <h1>Movimentação de Estoque</h1>
+
+            <p>Registre uma entrada ou saída de produtos.</p>
+        </div>
+
+        <a href="{{ url_for('estoque.ver_estoque') }}"
+           class="btn-voltar">
+            Voltar
+        </a>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <div>
+                <h2>Movimentar estoque</h2>
+
+                <span class="card-description">
+                    Informe a quantidade que deseja movimentar.
+                </span>
+            </div>
+
+        </div>
+
+
+        <div class="form-container">
+
+            <form method="POST">
+
+                {% if produto %}
+
+                <div class="produto-info">
+
+                    <span class="produto-label">
+                        Produto
+                    </span>
+
+                    <strong>
+                        {{ produto.nome }}
+                    </strong>
+
+                    <span class="produto-quantidade">
+                        Estoque atual:
+                        <b>{{ produto.quantidade }}</b>
+                    </span>
+
+                </div>
+
+                {% endif %}
+
+
+                <div class="form-group">
+
+                    <label for="quantidade">
+                        Quantidade
+                    </label>
+
+                    <input
+                        type="number"
+                        id="quantidade"
+                        name="quantidade"
+                        min="1"
+                        placeholder="Digite a quantidade"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="movimentacao-info">
+
+                    <div class="info-entrada">
+
+                        <strong>Entrada</strong>
+
+                        <span>
+                            Adiciona produtos ao estoque.
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-saida">
+
+                        <strong>Saída</strong>
+
+                        <span>
+                            Remove produtos do estoque.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        name="tipo"
+                        value="entrada"
+                        class="btn-entrada">
+                        Confirmar Entrada
+                    </button>
+
+                    <button
+                        type="submit"
+                        name="tipo"
+                        value="saida"
+                        class="btn-saida">
+                        Confirmar Saída
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+        Sistema de Controle de Estoque
+    </footer>
+
+</div>
+
+{% endblock %}

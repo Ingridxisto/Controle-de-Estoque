@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Baixo Estoque | Controle de Estoque</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style_baixo_estoque.css') }}">
+</head>
+
+<body>
+
+<div class="page">
+
+    <header class="topbar">
+
+        <div>
+            <span class="eyebrow">ATENÇÃO AO ESTOQUE</span>
+
+            <h1>Produtos com Baixo Estoque</h1>
+
+            <p>
+                Produtos que precisam de reposição.
+            </p>
+        </div>
+
+        <a href="{{ url_for('core.home') }}" class="btn-voltar">
+            ← Voltar
+        </a>
+
+    </header>
+
+
+    <div class="alerta-estoque">
+
+        <span class="alerta-icone">!</span>
+
+        <span>
+            Os produtos abaixo estão com quantidade igual ou inferior ao
+            estoque mínimo definido.
+        </span>
+
+    </div>
+
+
+    <section class="card">
+
+        <div class="card-header">
+
+            <h2>Produtos para reposição</h2>
+
+            <span class="card-description">
+                Verifique os produtos e faça a reposição necessária.
+            </span>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Produto</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Quantidade</th>
+                        <th>Mínimo</th>
+                        <th>Ações</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for produto in produtos %}
+
+                    <tr class="estoque-critico">
+
+                        <td>
+                            <span class="produto-id">
+                                #{{ produto.id }}
+                            </span>
+                        </td>
+
+                        <td>
+                            <span class="produto-nome">
+                                {{ produto.nome }}
+                            </span>
+                        </td>
+
+                        <td class="descricao">
+                            {{ produto.descricao or "—" }}
+                        </td>
+
+                        <td class="valor">
+                            R$ {{ "{:.2f}".format(produto.valor) }}
+                        </td>
+
+                        <td>
+                            <span class="quantidade-atual">
+                                {{ produto.quantidade }}
+                            </span>
+                        </td>
+
+                        <td>
+                            <span class="quantidade-minima">
+                                {{ produto.quantidade_minima }}
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <div class="acoes">
+
+                                <a
+                                    href="{{ url_for(
+                                        'produto.editar_produto_route',
+                                        id=produto.id, origem='baixo_estoque'
+                                    ) }}"
+                                    class="btn-editar">
+                                    Editar
+                                </a>
+
+
+                                <a
+                                    href="{{ url_for(
+                                        'produto.excluir_produto_route',
+                                        id=produto.id
+                                    ) }}"
+                                    class="btn-excluir"
+                                    onclick="return confirm(
+                                        'Tem certeza que deseja excluir este produto?'
+                                    )">
+                                    Excluir
+                                </a>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    {% else %}
+
+                    <tr>
+
+                        <td colspan="7" class="sem-produtos">
+
+                            🎉 Nenhum produto está com estoque baixo.
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <span>Controle de Estoque</span>
+        <span>•</span>
+        <span>FECAF</span>
+
+    </footer>
+
+</div>
+
+</body>
+
+</html>

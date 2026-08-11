@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+
+{% block title %}
+Cadastrar Produto
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style_produto.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page">
+
+    <div class="topbar">
+
+        <div>
+            <span class="eyebrow">PRODUTOS</span>
+
+            <h1>Cadastrar Produto</h1>
+
+            <p>
+                Adicione um novo produto ao estoque.
+            </p>
+        </div>
+
+        <a href="{{ url_for('estoque.ver_estoque') }}"
+           class="btn-voltar">
+            Voltar
+        </a>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <h2>Novo produto</h2>
+
+            <span class="card-description">
+                Preencha as informações abaixo.
+            </span>
+
+        </div>
+
+
+        <div class="form-container">
+
+            <form action="{{ url_for('produto.cadastrar_produto') }}"
+                  method="post">
+
+                <div class="form-group">
+
+                    <label for="nome">
+                        Nome
+                    </label>
+
+                    <input
+                        type="text"
+                        name="nome"
+                        id="nome"
+                        placeholder="Digite o nome do produto"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="valor">
+                            Valor
+                        </label>
+
+                        <input
+                            type="number"
+                            name="valor"
+                            id="valor"
+                            step="0.01"
+                            min="0"
+                            placeholder="0,00"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="quantidade">
+                            Quantidade
+                        </label>
+
+                        <input
+                            type="number"
+                            name="quantidade"
+                            id="quantidade"
+                            min="0"
+                            placeholder="0"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="quantidade_minima">
+                        Quantidade mínima
+                    </label>
+
+                    <input
+                        type="number"
+                        name="quantidade_minima"
+                        id="quantidade_minima"
+                        min="0"
+                        placeholder="Ex.: 5"
+                        required
+                    >
+
+                    <small>
+                        O produto será destacado quando atingir essa quantidade.
+                    </small>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="descricao">
+                        Descrição
+                    </label>
+
+                    <textarea
+                        name="descricao"
+                        id="descricao"
+                        placeholder="Digite uma descrição para o produto"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <a href="{{ url_for('estoque.ver_estoque') }}"
+                       class="btn-secondary">
+                        Cancelar
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="btn-primary">
+                        Cadastrar Produto
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
