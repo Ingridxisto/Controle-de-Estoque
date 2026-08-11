@@ -395,27 +395,27 @@ O projeto possui algumas medidas de segurança, incluindo:
 
 As funcionalidades da aplicação foram testadas utilizando:
 
-Interface web
-Banco de dados MySQL
-Postman
+Interface web  
+Banco de dados MySQL  
+Postman  
 
 Foram realizados testes de:
 
-Login de administrador
-Login de usuário comum
-Cadastro de usuários
-Cadastro de produtos
-Edição de produtos
-Exclusão de produtos
-Entrada de estoque
-Saída de estoque
-Consulta de produtos
-Consulta de movimentações
-Permissões de administrador
-Permissões de usuário comum
-Endpoints da API
-Autenticação JWT
-Validação de dados
+Login de administrador  
+Login de usuário comum  
+Cadastro de usuários  
+Cadastro de produtos  
+Edição de produtos  
+Exclusão de produtos  
+Entrada de estoque  
+Saída de estoque  
+Consulta de produtos  
+Consulta de movimentações  
+Permissões de administrador  
+Permissões de usuário comum  
+Endpoints da API  
+Autenticação JWT  
+Validação de dados  
 
 ## 📌 Objetivo do projeto
 
@@ -440,14 +440,14 @@ Desenvolvedora Back-end Python
 
 Tecnologias de interesse:
 
-Python
-Flask
-Django
-FastAPI
-SQL
-APIs REST
-Desenvolvimento de sistemas
-Inteligência Artificial
+Python  
+Flask  
+Django  
+FastAPI  
+SQL  
+APIs REST  
+Desenvolvimento de sistemas  
+Inteligência Artificial  
 
 ## 📄 Licença
 
