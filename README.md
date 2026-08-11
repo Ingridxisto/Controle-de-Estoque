@@ -380,42 +380,42 @@ Apenas administradores.
 
 O projeto possui algumas medidas de segurança, incluindo:
 
-🔐 Senhas armazenadas utilizando hash
-🔑 Autenticação de usuários
-👥 Controle de acesso por perfil
-🎫 Autenticação JWT para a API
-🛡️ Proteção de rotas administrativas
-🔒 Variáveis sensíveis armazenadas no .env
-🚫 .env incluído no .gitignore
-✅ Validação dos dados recebidos pela API
-✅ Validação de quantidade e valores de produtos
-🛡️ Proteção contra acesso não autorizado às funcionalidades administrativas
+🔐 Senhas armazenadas utilizando hash  
+🔑 Autenticação de usuários  
+👥 Controle de acesso por perfil  
+🎫 Autenticação JWT para a API  
+🛡️ Proteção de rotas administrativas  
+🔒 Variáveis sensíveis armazenadas no .env  
+🚫 .env incluído no .gitignore  
+✅ Validação dos dados recebidos pela API  
+✅ Validação de quantidade e valores de produtos  
+🛡️ Proteção contra acesso não autorizado às funcionalidades administrativas  
 
 ## 🧪 Testes
 
 As funcionalidades da aplicação foram testadas utilizando:
 
-Interface web  
-Banco de dados MySQL  
-Postman  
+- Interface web  
+- Banco de dados MySQL  
+- Postman  
 
 Foram realizados testes de:
 
-Login de administrador  
-Login de usuário comum  
-Cadastro de usuários  
-Cadastro de produtos  
-Edição de produtos  
-Exclusão de produtos  
-Entrada de estoque  
-Saída de estoque  
-Consulta de produtos  
-Consulta de movimentações  
-Permissões de administrador  
-Permissões de usuário comum  
-Endpoints da API  
-Autenticação JWT  
-Validação de dados  
+- Login de administrador  
+- Login de usuário comum  
+- Cadastro de usuários  
+- Cadastro de produtos  
+- Edição de produtos  
+- Exclusão de produtos  
+- Entrada de estoque  
+- Saída de estoque  
+- Consulta de produtos  
+- Consulta de movimentações  
+- Permissões de administrador  
+- Permissões de usuário comum  
+- Endpoints da API  
+- Autenticação JWT  
+- Validação de dados  
 
 ## 📌 Objetivo do projeto
 
