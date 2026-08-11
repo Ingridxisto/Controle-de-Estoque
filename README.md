@@ -162,6 +162,7 @@ Controle-de-Estoque/
 ├── .gitignore
 ├── .env
 └── README.md
+```
 
 A estrutura pode variar de acordo com a versão atual do projeto.
 
@@ -169,11 +170,13 @@ A estrutura pode variar de acordo com a versão atual do projeto.
 ### 1. Clone o repositório
 ```bash
 git clone https://github.com/Ingridxisto/Controle-de-Estoque.git
+```
 
 #### Entre na pasta:
 
 ```bash
 cd Controle-de-Estoque
+```
 
 ### 2. Crie um ambiente virtual
 
@@ -181,21 +184,25 @@ cd Controle-de-Estoque
 
 ```bash
 python -m venv venv
+```
 
 #### Ative o ambiente virtual:
 
 ```bash
 venv\Scripts\activate
+```
 
 #### No Linux/macOS:
 
 ```bash
 source venv/bin/activate
+```
 
 ### 3. Instale as dependências
 
 ```bash
 pip install -r requirements.txt
+```
 
 ##🗄️ Configuração do banco de dados
 
@@ -205,6 +212,7 @@ O projeto utiliza MySQL.
 
 ```bash
 CREATE DATABASE controle_estoque;
+```
 
 #### Depois configure as variáveis de ambiente no arquivo .env.
 
@@ -213,6 +221,7 @@ Exemplo:
 ```bash
 SECRET_KEY=sua_chave_secreta
 DATABASE_URL=mysql+pymysql://usuario:senha@localhost/controle_estoque
+```
 
 O arquivo .env não deve ser enviado para o GitHub.
 
@@ -222,6 +231,7 @@ Depois de configurar o banco de dados, execute:
 
 ```bash
 flask db upgrade
+```
 
 Esse comando cria/atualiza as tabelas de acordo com as migrações do projeto.
 
@@ -233,6 +243,7 @@ Execute:
 
 ```bash
 python criar_admin.py
+```
 
 O terminal solicitará:
 
@@ -241,6 +252,7 @@ Nome do administrador:
 Email do administrador:
 Senha do administrador:
 Confirme a senha:
+```
 
 A senha não fica armazenada no código-fonte.
 
@@ -252,11 +264,13 @@ Execute:
 
 ```bash
 python run.py
+```
 
 O sistema estará disponível em:
 
 ```bash
 http://127.0.0.1:5000
+```
 
 Faça login utilizando as credenciais do administrador criadas anteriormente.
 
@@ -267,6 +281,7 @@ O projeto também possui uma API REST protegida por JWT.
 ```bash
 Login
 POST /api/login
+```
 
 Exemplo:
 
@@ -275,6 +290,7 @@ Exemplo:
     "email": "admin@email.com",
     "senha": "sua_senha"
 }
+```
 
 A API retorna um token JWT que deve ser utilizado nas requisições autenticadas.
 
@@ -284,6 +300,7 @@ A API retorna um token JWT que deve ser utilizado nas requisições autenticadas
 
 ```bash
 GET /api/produtos
+```
 
 Requer autenticação JWT.
 
@@ -291,6 +308,7 @@ Requer autenticação JWT.
 
 ```bash
 GET /api/produtos/<produto_id>
+```
 
 Requer autenticação JWT.
 
@@ -298,6 +316,7 @@ Requer autenticação JWT.
 
 ```bash
 POST /api/produtos
+```
 
 Apenas administradores.
 
@@ -311,11 +330,13 @@ Apenas administradores.
     "quantidade": 10,
     "quantidade_minima": 3
 }
+```
 
 #### Atualizar produto
 
 ```bash
 PUT /api/produtos/<produto_id>
+```
 
 Apenas administradores.
 
@@ -323,6 +344,7 @@ Apenas administradores.
 
 ```bash
 DELETE /api/produtos/<produto_id>
+```
 
 Apenas administradores.
 
@@ -332,6 +354,7 @@ Apenas administradores.
 
 ```bash
 POST /api/movimentacoes
+```
 
 Apenas administradores.
 
@@ -343,11 +366,13 @@ Exemplo:
     "tipo": "entrada",
     "quantidade": 5
 }
+```
 
 #### Consultar movimentações
 
 ```bash
 GET /api/movimentacoes
+```
 
 Apenas administradores.
 
