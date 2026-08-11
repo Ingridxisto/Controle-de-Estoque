@@ -440,14 +440,14 @@ Desenvolvedora Back-end Python
 
 Tecnologias de interesse:
 
-Python  
-Flask  
-Django  
-FastAPI  
-SQL  
-APIs REST  
-Desenvolvimento de sistemas  
-Inteligência Artificial  
+🐍 Python  
+🌶️ Flask  
+🎸 Django  
+⚡ FastAPI  
+🗄️ SQL  
+🔗 APIs REST  
+💻 Desenvolvimento de sistemas  
+🤖 Inteligência Artificial  
 
 ## 📄 Licença
 
